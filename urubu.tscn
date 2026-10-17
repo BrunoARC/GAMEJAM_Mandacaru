@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cquye22xtked3"]
+
+[ext_resource type="Script" uid="uid://dm1575ova754" path="res://urubu.gd" id="1_et0a7"]
+[ext_resource type="Texture2D" uid="uid://bx7bw3hf1ymbp" path="res://Assets/Personagens/Frames/urubu_voando/urubu_voando_01.png" id="2_23owh"]
+[ext_resource type="Texture2D" uid="uid://qaso7k30rrpb" path="res://Assets/Personagens/Frames/urubu_voando/urubu_voando_02.png" id="3_dnjcb"]
+[ext_resource type="Texture2D" uid="uid://djn7apty8o8xe" path="res://Assets/Personagens/Frames/urubu_voando/urubu_voando_03.png" id="4_wt18e"]
+[ext_resource type="Texture2D" uid="uid://seuxlwt4jdo5" path="res://Assets/Personagens/Frames/urubu_voando/urubu_voando_04.png" id="5_nla5r"]
+[ext_resource type="Texture2D" uid="uid://c81xb0vkm3evc" path="res://Assets/Personagens/Frames/urubu_voando/urubu_voando_05.png" id="6_2suyb"]
+[ext_resource type="Texture2D" uid="uid://bqmlgh105jjh5" path="res://Assets/Personagens/Frames/urubu_voando/urubu_voando_07.png" id="7_sxuci"]
+[ext_resource type="Texture2D" uid="uid://l0t71p3c2ycn" path="res://Assets/Personagens/Frames/urubu_voando/urubu_voando_06.png" id="8_f363h"]
+[ext_resource type="Texture2D" uid="uid://bsa0cmad302ch" path="res://Assets/Personagens/Frames/urubu_voando/urubu_voando_08.png" id="9_on35g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6trje"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_23owh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dnjcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wt18e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nla5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2suyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sxuci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_f363h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_on35g")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdpi0"]
+size = Vector2(27, 6)
+
+[node name="urubu" type="Area2D" unique_id=1531536603]
+collision_layer = 2
+script = ExtResource("1_et0a7")
+v_speed = 60.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=50519162]
+sprite_frames = SubResource("SpriteFrames_6trje")
+animation = &"walk"
+autoplay = "walk"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1738098439]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_pdpi0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1895199333]
+rect = Rect2(-13, -3, 27, 6)
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=301563802]
+target_position = Vector2(0, 3)
+collision_mask = 2

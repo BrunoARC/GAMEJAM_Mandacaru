@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b1lqosq1bnh4q"]
+
+[ext_resource type="Texture2D" uid="uid://j8tdegclb2kn" path="res://Assets/Personagens/Frames/gado_sertao/gado_sertao_01.png" id="1_3t2es"]
+[ext_resource type="Script" uid="uid://doqdphc4enbl8" path="res://gado.gd" id="1_5s0c7"]
+[ext_resource type="Texture2D" uid="uid://iqbtulfbjt3" path="res://Assets/Personagens/Frames/gado_sertao/gado_sertao_02.png" id="2_5s0c7"]
+[ext_resource type="Texture2D" uid="uid://by1o4jgoebwu6" path="res://Assets/Personagens/Frames/gado_sertao/gado_sertao_03.png" id="3_76lwi"]
+[ext_resource type="Texture2D" uid="uid://dgknkspbrc67u" path="res://Assets/Personagens/Frames/gado_sertao/gado_sertao_04.png" id="4_6pjwl"]
+[ext_resource type="Texture2D" uid="uid://cc2rv61npcwsy" path="res://Assets/Personagens/Frames/gado_sertao/gado_sertao_05.png" id="5_c1ajt"]
+[ext_resource type="Texture2D" uid="uid://v03ip3dslg1x" path="res://Assets/Personagens/Frames/gado_sertao/gado_sertao_07.png" id="6_n10jb"]
+[ext_resource type="Texture2D" uid="uid://ywuvfwru81ef" path="res://Assets/Personagens/Frames/gado_sertao/gado_sertao_06.png" id="7_gae0w"]
+[ext_resource type="Texture2D" uid="uid://dhmne51pc6khn" path="res://Assets/Personagens/Frames/gado_sertao/gado_sertao_08.png" id="8_qtjen"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6trje"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3t2es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5s0c7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_76lwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6pjwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c1ajt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n10jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gae0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qtjen")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdpi0"]
+size = Vector2(53, 32)
+
+[node name="Gado" type="Area2D" unique_id=92614306]
+script = ExtResource("1_5s0c7")
+h_speed = null
+v_speed = null
+direcao = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1537783008]
+position = Vector2(1, 0)
+scale = Vector2(1.03125, 1)
+sprite_frames = SubResource("SpriteFrames_6trje")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1499761967]
+position = Vector2(0.5, 4)
+shape = SubResource("RectangleShape2D_pdpi0")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=316584570]
+target_position = Vector2(0, 18)
+collision_mask = 2
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=595257615]
+rect = Rect2(-25, -11, 52, 30)

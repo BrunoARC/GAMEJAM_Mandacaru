@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://ns0r73he0qbf"]
+
+[ext_resource type="Texture2D" uid="uid://d1tfr2bgqfgvf" path="res://Assets/Personagens/Frames/bode/bode_01.png" id="1_o8ofp"]
+[ext_resource type="Script" uid="uid://cw5b32bxxe8wt" path="res://bode.gd" id="1_qyo8j"]
+[ext_resource type="Texture2D" uid="uid://bx2g2xjouc53m" path="res://Assets/Personagens/Frames/bode/bode_02.png" id="2_qyo8j"]
+[ext_resource type="Texture2D" uid="uid://dyaxjgyhho1on" path="res://Assets/Personagens/Frames/bode/bode_03.png" id="3_r2gsf"]
+[ext_resource type="Texture2D" uid="uid://brn7j2bganrx5" path="res://Assets/Personagens/Frames/bode/bode_04.png" id="4_s4heq"]
+[ext_resource type="Texture2D" uid="uid://cp56t00wpgehl" path="res://Assets/Personagens/Frames/bode/bode_05.png" id="5_tboqm"]
+[ext_resource type="Texture2D" uid="uid://ipj880owxmpn" path="res://Assets/Personagens/Frames/bode/bode_07.png" id="6_khipq"]
+[ext_resource type="Texture2D" uid="uid://ijg85dk6d3cs" path="res://Assets/Personagens/Frames/bode/bode_06.png" id="7_86cd1"]
+[ext_resource type="Texture2D" uid="uid://deslwuwlcogbu" path="res://Assets/Personagens/Frames/bode/bode_08.png" id="8_08hnp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6trje"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o8ofp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qyo8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r2gsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s4heq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tboqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_khipq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_86cd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_08hnp")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdpi0"]
+size = Vector2(29, 24)
+
+[node name="Bode" type="Area2D" unique_id=273900112]
+collision_layer = 2
+script = ExtResource("1_qyo8j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1251692440]
+sprite_frames = SubResource("SpriteFrames_6trje")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=261536742]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_pdpi0")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=2123147164]
+target_position = Vector2(0, 11)
+collision_mask = 2
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=985166841]
+rect = Rect2(-13, -12, 29, 24)

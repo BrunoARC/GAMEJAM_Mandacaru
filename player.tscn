@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bstgstrptehr0"]
+
+[ext_resource type="Texture2D" uid="uid://cy6x4sfax545j" path="res://New Piskel (2) (1).png" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://wvfop5tlg70c" path="res://New_Piskel_5.webp" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://bqan3i76cafdm" path="res://New Piskel (3).png" id="3_sweqy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4p0ob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i3pqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hqtel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sweqy")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6trje"]
+size = Vector2(302, 657.5)
+
+[node name="Player" type="CharacterBody2D" unique_id=446302868]
+position = Vector2(21, 16)
+collision_mask = 6
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1733851605]
+position = Vector2(617.00006, 312)
+scale = Vector2(0.98939395, 1)
+sprite_frames = SubResource("SpriteFrames_4p0ob")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1197280873]
+position = Vector2(578, 315)
+shape = SubResource("RectangleShape2D_6trje")
