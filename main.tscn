@@ -71,6 +71,12 @@
 [ext_resource type="PackedScene" uid="uid://b1lqosq1bnh4q" path="res://gado.tscn" id="69_dij0e"]
 [ext_resource type="PackedScene" uid="uid://cquye22xtked3" path="res://urubu.tscn" id="70_k1udn"]
 
+[ext_resource type="PackedScene" uid="uid://bstgstrptehr0" path="res://player.tscn" id="71_player"]
+
+[ext_resource type="PackedScene" path="res://caranguejeira.tscn" id="72_carang"]
+[ext_resource type="PackedScene" path="res://escorpiao.tscn" id="73_escorp"]
+[ext_resource type="PackedScene" path="res://cascavel.tscn" id="74_cascav"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
 texture = ExtResource("1_h2yge")
 0:0/0 = 0
@@ -297,11 +303,6 @@ texture = ExtResource("32_htxhm")
 position = Vector2(715.75, 555.5)
 scale = Vector2(0.48529458, 0.5)
 texture = ExtResource("32_htxhm")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1889812992]
-position = Vector2(254, 485)
-scale = Vector2(2, 2)
-zoom = Vector2(2.3, 2.3)
 
 [node name="SerraLonge3" type="Sprite2D" parent="." unique_id=429227843]
 position = Vector2(1871.5, 510)
@@ -682,3 +683,17 @@ position = Vector2(75, 441)
 position = Vector2(1821, 560)
 scale = Vector2(0.6666673, 0.38942382)
 texture = ExtResource("66_0arob")
+
+[node name="Perigosos" type="Node" parent="."]
+
+[node name="Caranguejeira" parent="Perigosos" instance=ExtResource("72_carang")]
+position = Vector2(720, 568)
+
+[node name="Escorpiao" parent="Perigosos" instance=ExtResource("73_escorp")]
+position = Vector2(1150, 568)
+
+[node name="Cascavel" parent="Perigosos" instance=ExtResource("74_cascav")]
+position = Vector2(1600, 568)
+
+[node name="Player" parent="." instance=ExtResource("71_player")]
+position = Vector2(40, 560)
